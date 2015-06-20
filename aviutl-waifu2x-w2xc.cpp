@@ -169,7 +169,6 @@ void waifu2x_w2xc(FILTER *fp, FILTER_PROC_INFO *fpip, const int mode_){
 				++p;
 			}
 		}
-		w2xconv_test(conv, 128);
 	}
 	else{
 		// ì«Ç›çûÇ›(YÇÃÇ›)
