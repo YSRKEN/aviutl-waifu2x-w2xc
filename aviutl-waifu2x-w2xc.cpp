@@ -201,9 +201,12 @@ void waifu2x_w2xc(FILTER *fp, FILTER_PROC_INFO *fpip, const int mode_){
 	for (int y = 0; y < h; ++y){
 		PIXEL_YC *ycp = fpip->ycp_edit + y * fpip->max_w;
 		for (int x = 0; x < w; ++x){
-			unsigned char r = (255 * ycp->y + (((22881 * ycp->cr >> 16) + 3) << 10)) >> 12;
-			unsigned char g = (255 * ycp->y + (((-5616 * ycp->cb >> 16) + (-11655 * ycp->cr >> 16) + 3) << 10)) >> 12;
-			unsigned char b = (255 * ycp->y + (((28919 * ycp->cb >> 16) + 3) << 10)) >> 12;
+			short r = (255 * ycp->y + (((22881 * ycp->cr >> 16) + 3) << 10)) >> 12;
+			short g = (255 * ycp->y + (((-5616 * ycp->cb >> 16) + (-11655 * ycp->cr >> 16) + 3) << 10)) >> 12;
+			short b = (255 * ycp->y + (((28919 * ycp->cb >> 16) + 3) << 10)) >> 12;
+			if (r < 0){ r = 0; } if (r > 255){ r = 255; }
+			if (g < 0){ g = 0; } if (g > 255){ g = 255; }
+			if (b < 0){ b = 0; } if (b > 255){ b = 255; }
 			int p = y * w + x;
 			src[p * kColors] = r;
 			src[p * kColors + 1] = g;
