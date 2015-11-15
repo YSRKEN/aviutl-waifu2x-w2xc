@@ -35,6 +35,9 @@ Microsoft Visual Studio 2013でコンパイルしました。
 AviUtlなので32bitバイナリを作成してください。
 
 ##更新履歴
+Ver.1.4.3
+モデルデータを最新版にした。
+
 Ver.1.4.2
 w2xc.dllを差し替えた。
 
